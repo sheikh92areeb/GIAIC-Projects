@@ -1,13 +1,11 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
 
 # Set the title of the website
 st.title("My Streamlit Website")
 
 # Add a sidebar menu
 st.sidebar.title("Menu")
-options = st.sidebar.radio("Go to", ["Home", "About", "Data", "Contact"])
+options = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
 
 # 1. Home Page
 if options == "Home":
@@ -24,26 +22,8 @@ elif options == "About":
     """)
     st.image("images/about_image.jpg", caption="Streamlit: Python-Powered Web Apps")
 
-# 3. Data Page
-elif options == "Data":
-    st.header("Data Visualization")
-    st.write("Here, we visualize some sample data.")
 
-    # Load sample data
-    data = pd.DataFrame({
-        "Category": ["A", "B", "C", "D"],
-        "Values": [23, 45, 56, 78]
-    })
-
-    # Show data as a table
-    st.table(data)
-
-    # Plot data as a bar chart
-    fig, ax = plt.subplots()
-    ax.bar(data["Category"], data["Values"], color="skyblue")
-    st.pyplot(fig)
-
-# 4. Contact Page
+# 3. Contact Page
 elif options == "Contact":
     st.header("Contact Me")
     st.write("Feel free to reach out!")
